@@ -1,0 +1,73 @@
+from advent_of_code_2022_q1_1_input_puzzle import input_puzzle
+
+def number_of_people(input_puzzle):
+    number_of_people = 0
+    for number_of_elves in input_puzzle:
+        if number_of_elves == "":
+            number_of_people+=1
+    number_of_people+=1
+    return number_of_people
+
+def list_for_each_elf(input_puzzle):
+    list_input_puzzle = []
+    temp_list = []
+    for item in input_puzzle:
+        if item != "":
+            temp_list.append(item)
+        else:
+            if temp_list:
+                list_input_puzzle.append(temp_list)
+                temp_list = []
+    # for the last group
+    if temp_list:
+        list_input_puzzle.append(temp_list)
+    return list_input_puzzle
+
+def convert_str_to_list(str_list):
+    int_list = []
+    for item in str_list:
+        int_list.append(int(item))
+    return int_list
+
+def convert_all_str_lists(str_list_in_a_list):
+    int_list_in_a_list = []
+    for str_list in str_list_in_a_list:
+        int_list_in_a_list.append(convert_str_to_list(str_list))
+    return int_list_in_a_list
+
+
+def max_cal(list_for_elf):
+    list_of_sums = []
+    for list in list_for_elf:
+        list_of_sums.append(sum(list))
+    return max(list_of_sums)
+
+def sum_of_all_3(list_for_elf):
+    list_of_sums = []
+    for list in list_for_elf:
+        list_of_sums.append(sum(list))
+    max_1 = max(list_of_sums)
+    list_of_sums.remove(max_1)
+    max_2 = max(list_of_sums)
+    list_of_sums.remove(max_2)
+    max_3 = max(list_of_sums)
+    return max_1+max_2+max_3
+
+if __name__ == "__main__":
+    num_elf =  number_of_people(input_puzzle)
+    print(f"number of people is {num_elf}")
+    list_for_elf = list_for_each_elf(input_puzzle)
+
+    int_list_in_a_list = convert_all_str_lists(list_for_elf)
+    max_elf = max_cal(int_list_in_a_list)
+    print(f"max list of sums is: {max_elf}")
+    sum_of_all_3_elf = sum_of_all_3(int_list_in_a_list)
+    print(f"the top 3 sum is: {sum_of_all_3_elf}")
+
+
+
+
+
+
+        
+    
