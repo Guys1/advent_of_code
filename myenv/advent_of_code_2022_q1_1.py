@@ -8,7 +8,6 @@ def number_of_people(input_puzzle):
     number_of_people+=1
     return number_of_people
 
-
 def list_for_each_elf(input_puzzle):
     list_input_puzzle = []
     temp_list = []
@@ -23,22 +22,6 @@ def list_for_each_elf(input_puzzle):
     if temp_list:
         list_input_puzzle.append(temp_list)
     return list_input_puzzle
-
-
-
-# def convert_str_to_list(list_for_elf):
-#     """
-#     this function gets list that contains many lists that have str values
-#     and change them to int
-#     [["1","2"][][]]
-#     [[1,2][][]]
-#     """
-#     int_list_of_elf = []
-#     for each_list in list_for_elf:
-#         print(each_list)
-#         int_list_of_elf.append(list(map(int, each_list)))
-#     return int_list_of_elf
-
 
 def convert_str_to_list(str_list):
     int_list = []
@@ -58,8 +41,6 @@ def max_cal(list_for_elf):
     for list in list_for_elf:
         list_of_sums.append(sum(list))
     return max(list_of_sums)
-
-
 
 if __name__ == "__main__":
     num_elf =  number_of_people(input_puzzle)
